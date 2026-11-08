@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#000000">
+<title>Cámara Film</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Film">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+  <div id="viewfinder">
+    <div id="frameBox"><canvas id="preview"></canvas><canvas id="stampLayer"></canvas></div>
+    <div id="start">
+      <p>Cámara Film</p>
+      <button id="startBtn">Abrir cámara</button>
+      <small id="startMsg"></small>
+    </div>
+  </div>
+  <div id="info"></div>
+  <div id="looks" class="chips"></div>
+  <div id="extras" class="chips small">
+    <button data-x="grain" class="on">Grano</button>
+    <button data-x="leak">Fuga de luz</button>
+    <button data-x="date">Fecha</button>
+    <button data-x="frame">Sin marco</button>
+  </div>
+  <div id="controls">
+    <button id="flipBtn" class="round" aria-label="Cambiar cámara">⟲</button>
+    <button id="shutter" aria-label="Tomar foto"></button>
+    <button id="torchBtn" class="round" aria-label="Flash" hidden>⚡</button>
+    <span id="torchSpacer" class="round ghost"></span>
+  </div>
+</main>
+<div id="review" hidden>
+  <img id="shot" alt="Foto tomada">
+  <div class="row">
+    <button id="discardBtn">Descartar</button>
+    <button id="saveBtn" class="primary">Guardar</button>
+  </div>
+</div>
+<video id="video" playsinline muted autoplay></video>
+<script src="film.js"></script>
+<script src="app.js"></script>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
+</body>
+</html>
